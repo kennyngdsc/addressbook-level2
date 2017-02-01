@@ -12,6 +12,10 @@ public class Address {
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
     public static final String ADDRESS_VALIDATION_REGEX = ".+";
 
+    /* public final Block block;
+    public final Street street;
+    public final Unit unit;
+    public final PostalCode postalCode; */
     public final String value;
     private boolean isPrivate;
 
@@ -27,6 +31,14 @@ public class Address {
             throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
         }
         this.value = trimmedAddress;
+        
+        /* String[] segmentedAddress = new String[4];
+        segmentedAddress = trimmedAddress.split(",");
+        this.block = new Block(segmentedAddress[0]);
+        this.street = new Street(segmentedAddress[1]);
+        this.unit = new Unit(segmentedAddress[2]);
+        this.postalCode = new PostalCode(segmentedAddress[3]);
+        this.value = block.getBlock() + "," + street.getStreet() + "," + unit.getUnit() + "," + postalCode.getPostalCode(); */
     }
 
     /**
