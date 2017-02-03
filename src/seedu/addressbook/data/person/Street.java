@@ -11,4 +11,16 @@ public class Street {
 	public String getStreet(){
 		return street;
 	}
+	
+	@Override
+    public String toString() {
+        return "STREET " + street;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof Street // instanceof handles nulls
+                && this.street.equals(((Street) other).street)); // state check
+    }
 }
