@@ -131,4 +131,12 @@ public class UniquePersonList implements Iterable<Person> {
                 || (other instanceof UniquePersonList // instanceof handles nulls
                         && this.internalList.equals(((UniquePersonList) other).internalList));
     }
+    
+    public String getPrintableString(Printable... printables) {
+    	String output = "";
+    	for (Printable ele: printables) {
+    		output += ele;
+    	}
+    	return output;
+    }
 }
