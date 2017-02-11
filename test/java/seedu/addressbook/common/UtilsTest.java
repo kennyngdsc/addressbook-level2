@@ -65,14 +65,11 @@ public class UtilsTest {
         assertNotUnique(null, "a", "b", null);
         
         // same value different object
-        int caseZero = 1;
-        Integer caseOne = new Integer(1);
+        int caseOne = 1;
         Integer caseTwo = new Integer(1);
         assertNotUnique(caseOne, caseTwo);
-        assertNotUnique(caseZero, caseOne);
-        assertNotUnique(caseZero, caseTwo);
         String caseThree = "1";
-        String caseFour = new String("1");
+        String caseFour = "1";
         assertNotUnique(caseThree, caseFour);
     }
 
