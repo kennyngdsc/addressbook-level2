@@ -36,8 +36,8 @@ public class AddCommand extends Command {
                       String email, boolean isEmailPrivate,
                       String address, boolean isAddressPrivate,
                       Set<String> tags) throws IllegalValueException {
-        final Set<Tag> tagSet = new HashSet<>();
-        for (String tagName : tags) {
+    	final Set<Tag> tagSet = new HashSet<>();
+    	for (String tagName : tags) {
             tagSet.add(new Tag(tagName));
         }
         this.toAdd = new Person(

@@ -1,6 +1,10 @@
 package seedu.addressbook.data.person;
 
+import seedu.addressbook.data.AddressBook;
+import seedu.addressbook.data.tag.Tagging;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.data.tag.Tag;
+import seedu.addressbook.data.exception.IllegalValueException;
 
 import java.util.Objects;
 
@@ -84,4 +88,19 @@ public class Person implements ReadOnlyPerson {
         return getAsTextShowAll();
     }
 
+    public void addTag(String tag) throws IllegalValueException {
+    	Tag newTag = new Tag(tag);
+    	tags.add(newTag);
+    	AddressBook.addTagging(new Tagging(newTag, this, Tagging.STATE_ADD_TAG));
+    }
+    
+    public void removeTag(String tag) throws IllegalValueException, UniqueTagList.TagNotFoundException {
+    	for (Tag currentTag: tags) {
+    		if (currentTag.tagName == tag) {
+    			tags.remove(currentTag);
+    			AddressBook.addTagging(new Tagging(new Tag(tag), this, Tagging.STATE_REMOVE_TAG));
+    			break;
+    		}
+    	}
+    }
 }

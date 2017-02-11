@@ -1,5 +1,7 @@
 package seedu.addressbook.commands;
 
+import seedu.addressbook.data.AddressBook;
+
 /**
  * Terminates the program.
  */
@@ -13,6 +15,7 @@ public class ExitCommand extends Command {
 
     @Override
     public CommandResult execute() {
+    	AddressBook.sessionSummary();
         return new CommandResult(MESSAGE_EXIT_ACKNOWEDGEMENT);
     }
 

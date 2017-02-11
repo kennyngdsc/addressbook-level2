@@ -5,11 +5,13 @@ import seedu.addressbook.data.person.UniquePersonList.*;
 import seedu.addressbook.data.tag.UniqueTagList;
 import seedu.addressbook.data.tag.UniqueTagList.*;
 import seedu.addressbook.data.tag.Tag;
+import seedu.addressbook.data.tag.Tagging;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.ArrayList;
 
 /**
  * Represents the entire address book. Contains the data of the address book.
@@ -22,6 +24,7 @@ public class AddressBook {
 
     private final UniquePersonList allPersons;
     private final UniqueTagList allTags; // can contain tags not attached to any person
+    private static final ArrayList<Tagging> tagStorage = new ArrayList<Tagging>();
 
     /**
      * Creates an empty address book.
@@ -150,5 +153,21 @@ public class AddressBook {
                 || (other instanceof AddressBook // instanceof handles nulls
                         && this.allPersons.equals(((AddressBook) other).allPersons)
                         && this.allTags.equals(((AddressBook) other).allTags));
+    }
+    
+    /**
+     * Association class: adds a tag
+     */
+    public static void addTagging(Tagging tag) {
+    	tagStorage.add(tag);
+    }
+    
+    /**
+     * Association class: Prints the whole session commands upon exit
+     */
+    public static void sessionSummary() {
+    	for (Tagging tag: tagStorage) {
+    		System.out.println(tag);
+    	}
     }
 }
