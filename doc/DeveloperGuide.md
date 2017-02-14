@@ -51,3 +51,7 @@
 * Problem: Test fails during the very first time.<br>
   Solution: The output of the very first test run could be slightly different because the program
   creates a new storage file. Tests should pass from the 2nd run onwards.
+  
+## User Stories
+1) As a product owner, I want to edit a certain contact so that I can change a contact's details.
+2) As a product owner, I want to be able to search for certain particulars so I don't have to look through my whole list of contacts.
